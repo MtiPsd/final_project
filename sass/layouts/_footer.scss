@@ -1,0 +1,78 @@
+.footer {
+  background-color: $color-secondary-darker;
+  grid-column: main-start / main-end;
+  color: $color-grey;
+
+  &>ul {
+    padding: 8rem $padding-overall 8rem $padding-overall;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+
+    @include respond(tablet-port) {
+      row-gap: 5rem;
+    }
+  }
+
+  &__item {
+
+    @include respond(tablet-port) {
+      justify-self: center !important;
+      align-self: start;
+      width: 100%;
+      padding: 0 3rem;
+    }
+  }
+
+  &>ul>li:not(:first-child) {
+    justify-self: end;
+  }
+
+  li {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    color: $color-white;
+    font-weight: normal;
+    font-size: 2rem;
+  }
+}
+
+
+.media {
+  &--footer {
+    font-size: 1.5rem;
+  }
+
+  &__icon--footer {
+    background-color: $color-grey-lighter;
+    border-radius: $radius-primary;
+    padding: 1.5rem;
+    margin-right: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-white;
+    }
+  }
+}
+
+
+.copyright {
+  background-color: $color-black;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+  padding: 3rem 0;
+
+  span {
+    color: $color-primary;
+    cursor: pointer;
+  }
+}

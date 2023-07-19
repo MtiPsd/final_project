@@ -1,0 +1,83 @@
+.section-contact {
+  background-color: $color-white-contact;
+  grid-column: main-start / main-end;
+  padding: 1rem $padding-overall 1rem $padding-overall ;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include respond(tablet-port) {
+    padding: 1rem 2rem;
+  }
+}
+
+.section-services {
+  background-color: $color-primary-light;
+  grid-column: main-start / main-end;
+
+  padding: 0 $padding-overall 0 $padding-overall ;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row: auto;
+
+  @include respond(tablet-port) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.section-department {
+  grid-column: center-start / center-end;
+  padding: 15rem 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+  column-gap: 3rem;
+  row-gap: 3rem;
+}
+
+.section-testimonial {
+  grid-column: main-start / main-end;
+  background-image: linear-gradient(rgba($color-black, 0.3), rgba($color-black, 0.3)),
+    url('../assets/img/testimonial.png');
+  background-position: center;
+  background-size: cover;
+  padding: 20rem $padding-overall 20rem $padding-overall ;
+  text-align: center;
+  color: $color-white;
+
+  @include respond(tablet-port) {
+    padding: 5rem $padding-overall 5rem $padding-overall ;
+    align-self: center;
+  }
+}
+
+.section-benefits {
+  grid-column: center-start / center-end;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: min-content;
+
+  @include respond(tablet-port) {
+    margin-top: 3rem;
+  }
+}
+
+.section-expert-doctors {
+  grid-column: center-start / center-end;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  column-gap: 3rem;
+  row-gap: 3rem;
+  padding-bottom: 10rem;
+}
+
+.section-cta {
+  grid-column: main-start / main-end;
+  display: flex;
+  color: $color-white;
+
+  @include respond(tablet-port) {
+    flex-direction: column;
+    margin-top: 5rem;
+  }
+}

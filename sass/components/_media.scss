@@ -1,0 +1,22 @@
+.media {
+  font-size: $default-font-size;
+  color: $color-secondary-light;
+
+  &__icon {
+    margin-right: 1.3rem;
+  }
+}
+
+.contact-info {
+  font-size: 1.3rem;
+  color: $color-grey;
+
+  .fa {
+    color: $color-primary;
+    margin-right: 0.5rem;
+  }
+
+  span:nth-child(2) {
+    margin-right: 6rem;
+  }
+}

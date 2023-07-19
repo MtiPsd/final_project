@@ -1,0 +1,74 @@
+/* ----------------- 
+  Base
+----------------- */
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // This defines what 1rem is
+  font-size: 62.5%;
+  overflow: auto;
+
+  @include respond(tablet-land) {
+    font-size: 56.25%;
+  }
+
+  @include respond(tablet-port) {
+    font-size: 50%;
+  }
+
+  @include respond(phone) {
+    font-size: 42%;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+input {
+  font-family: inherit;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+a,
+a:link,
+a:visited {
+  text-decoration: none;
+  color: $color-grey;
+}
+
+::selection {
+  background: #444;
+  color: #fff;
+}
+
+
+// ****************************
+@include setOverallLayouts;
+// ****************************

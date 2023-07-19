@@ -1,0 +1,149 @@
+/*
+|--------------------------------------------------------------------------
+| Media Queries
+|--------------------------------------------------------------------------
+|
+| 0 - 600px:       Phone
+| 600 - 900:       Tablet portraits
+| 900 - 1200px:    Tablet landscape
+| [1200 - 1800]:   Is where our normal styles apply 
+| 1800 + :         Big desktops
+|
+| Breakpoint argument choices :
+| - phone
+| - tablet-port
+| - tablet-land
+| - big-desktop
+| 
+| Orders: base + typography > general layout + grid > page layout + component 
+| 
+*/
+
+@mixin respond($breakpoint) {
+
+  //600px
+  @if $breakpoint ==phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+
+  //900px
+  @if $breakpoint ==tablet-port {
+    @media only screen and (max-width: 57em) {
+      @content;
+    }
+  }
+
+  //1200px
+  @if $breakpoint ==tablet-land {
+    @media only screen and (max-width: 77.5em) {
+      @content;
+    }
+  }
+
+  //1800px
+  @if $breakpoint ==big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Overall Layouts
+|--------------------------------------------------------------------------
+*/
+@mixin setOverallLayouts {
+  .container {
+    display: grid;
+    grid-template-rows: repeat(2, min-content) 90vh min-content 45vw repeat(2, min-content) 45vw repeat(3, min-content);
+    grid-template-columns: [main-start] minmax(6rem, 1fr) [center-start] repeat(8,
+        [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [main-end];
+
+    @include respond(big-desktop) {
+      grid-template-rows: repeat(2, min-content) 100vh min-content 45vw repeat(2, min-content) 45vw repeat(3, min-content);
+    }
+
+    @include respond(tablet-port) {
+      grid-template-rows: auto;
+    }
+  }
+
+  .container--doctors {
+    display: grid;
+    grid-template-rows: repeat(5, min-content) 45vw repeat(2, min-content);
+    grid-template-columns: [main-start] minmax(6rem, 1fr) [center-start] repeat(8,
+        [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [main-end];
+
+    @include respond(tablet-port) {
+      grid-template-rows: auto;
+    }
+  }
+}
+
+
+// center items inside of a box using flexbox
+@mixin centerFlex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin setBackground($src) {
+  background-image: url($src);
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin hamburgerMenuAnim {
+  &__icon {
+    position: relative;
+
+    &,
+    &::before,
+    &::after {
+      width: 2.5rem;
+      height: 2px;
+      background-color: $color-white;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
+    }
+
+    &::before {
+      top: -0.6rem;
+    }
+
+    &::after {
+      top: 0.6rem;
+    }
+  }
+
+  &__checkbox:checked+&__hamburger &__icon {
+    background-color: transparent;
+  }
+
+  &__checkbox:checked+&__hamburger &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked+&__hamburger &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+
+  &__checkbox:checked~&__list {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

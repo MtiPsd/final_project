@@ -1,0 +1,80 @@
+.benefits {
+  &__sector {
+    grid-row: 1 /2;
+    grid-column: 1 / -1;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    font-size: 1.9rem;
+    padding: 2rem 0;
+
+    &--1 {
+      grid-column: 1/2;
+    }
+
+    &--2 {
+      grid-column: 2/3;
+
+    }
+
+    &--3 {
+      grid-column: 3/4;
+    }
+
+    @include respond(tablet-port) {
+
+      &--1,
+      &--2,
+      &--3 {
+        grid-column: 1/ -1;
+      }
+
+      &--1 {
+        grid-row: 1/2;
+      }
+
+      &--2 {
+        grid-row: 2/3;
+      }
+
+      &--3 {
+        grid-row: 3/4;
+      }
+    }
+
+  }
+}
+
+.sector__content {
+  grid-column: 1/4;
+  padding: 5rem 2rem 0 0;
+
+  @include respond(tablet-port) {
+    grid-column: 1/ -1;
+  }
+
+  &--icon {
+    height: 7rem;
+    width: 7rem;
+    font-size: 3rem;
+    color: $color-white;
+    border-radius: 50%;
+    background-color: $color-primary;
+    text-align: center;
+    @include centerFlex;
+  }
+
+}
+
+.sector__picture {
+  grid-column: 4/7;
+  padding-top: 5rem;
+
+  @include respond(tablet-port) {
+    grid-column: 1/ -1;
+  }
+
+  img {
+    width: 100%;
+  }
+}

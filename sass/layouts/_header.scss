@@ -1,0 +1,17 @@
+.header {
+  grid-column: main-start / main-end;
+  font-size: $default-font-size;
+  padding: 18rem $padding-overall 18rem $padding-overall;
+  @include setBackground('../assets/img/header-background.png');
+
+  @include respond(tablet-port) {
+    padding: 10rem $padding-overall 10rem $padding-overall;
+    padding-left: 5rem;
+  }
+
+  &>p {
+    color: $color-grey;
+    margin-bottom: 3.5rem;
+    font-weight: 400;
+  }
+}

@@ -1,0 +1,32 @@
+.service {
+  color: $color-white;
+
+  &__icon {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  &:nth-child(2) {
+    background-color: $color-primary-dark;
+  }
+
+  &:not(:first-child) {
+    padding: 4.5rem;
+  }
+
+  &:first-child {
+    padding: 4.5rem 9rem 4.5rem 0;
+  }
+
+  @include respond(tablet-port) {
+    &:first-child {
+      padding: 4.5rem;
+    }
+  }
+}

@@ -1,0 +1,130 @@
+.navigation {
+  grid-column: main-start / main-end;
+  padding: 0 $padding-overall 0 $padding-overall ;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 8rem;
+  align-items: center;
+  column-gap: 7rem;
+
+  &__hamburger,
+  &__checkbox {
+    display: none;
+  }
+
+  &__list {
+    display: flex;
+    font-size: 1.5rem;
+    color: $color-grey;
+    font-weight: 500;
+
+    &>li {
+      margin-left: 3rem;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: $color-grey-dark;
+      }
+    }
+
+    &--inner {
+      visibility: hidden;
+      opacity: 0;
+      text-align: left;
+      position: absolute;
+      transition: all 0.3s ease;
+      width: 20rem;
+      margin-top: 1.2rem;
+    }
+  }
+
+  &__item {
+    &--dropdown {
+      position: relative;
+
+      &>ul>li {
+        background-color: $color-white;
+        padding: 1rem 4rem 1rem 2rem;
+      }
+
+      &:hover>ul {
+        display: block;
+        background-color: $color-white;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  @include respond(tablet-port) {
+    background-color: $color-grey-lighter;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 7rem;
+    z-index: 999;
+
+    &__logo,
+    .btn--nav {
+      display: none;
+    }
+
+    &__hamburger {
+      position: absolute;
+      right: 2rem;
+      display: block;
+      justify-self: end;
+      height: 3rem;
+      width: 3rem;
+      @include centerFlex;
+    }
+
+    &__list {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateX(100%);
+
+
+      &--inner {
+        position: relative;
+        display: none;
+      }
+    }
+
+    &__item--dropdown {
+      position: relative;
+
+      &:hover>ul {
+        display: block;
+      }
+    }
+
+    .navigation__list li {
+      background-color: $color-grey-lighter;
+      margin-left: 0;
+      width: 100%;
+      padding: 2rem;
+      text-align: left;
+      padding: 2rem;
+
+      a {
+        display: block;
+        text-align: left;
+        color: $color-white;
+        font-size: 1.8rem;
+        font-weight: normal;
+      }
+    }
+  }
+
+  @include hamburgerMenuAnim;
+}
